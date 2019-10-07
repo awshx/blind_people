@@ -1,13 +1,10 @@
 <?php
-$dossier = '/home/isen/Bureau/blind_people/www/upload/';
+$dossier = 'upload/';
 $fichier = basename($_FILES['images']['name']);
-$taille_maxi = 10000000;
-$taille = filesize($_FILES['images']['tmp_name']);
+$taille_maxi = 100000;
+10000000$taille = filesize($_FILES['images']['tmp_name']);
 $extensions = array('.png', '.gif', '.jpg', '.jpeg');
-$extension = strrchr($_FILES['images']['name'], '.');
-
-//echo $fichier;
-
+$extension = strrchr($_FILES['images']['name'], '.'); 
 //Début des vérifications de sécurité...
 if(!in_array($extension, $extensions)) //Si l'extension n'est pas dans le tableau
 {
