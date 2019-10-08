@@ -10,9 +10,9 @@ create table if not exists logo ( -- on creee la table logo si elle n'existe pas
 	primary key (id)
 );
 
-/*load data local infile '/netappgfc_vol1/annuaire/annuaire_cc/fusion.csv' -- on transfere les donnees du fichier .csv dans la table Annuaire de cette database
-into table Annuaire
+load data local infile '/home/isen/Bureau/blind_people/logo_informations.csv' -- on transfere les donnees du fichier .csv dans la table logo de cette database
+into table logo
 fields terminated by '\t'
 lines terminated by '\n'
 ignore 1 lines
-(nom, prenom, portable, telephone, fax, multitelephone, poste);*/
+(nom_image, lien, couleur);
