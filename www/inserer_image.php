@@ -1,6 +1,6 @@
 <?php
 // connexion à la base de données:
-mysql_connect("localhost","root","Palace8313");
+mysql_connect("localhost","root","root");
 mysql_select_db("database_logo");
 echo "Connexion a la database\n";
 
