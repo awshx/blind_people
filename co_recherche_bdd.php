@@ -3,7 +3,7 @@
 <?php
 #Tentative de connexion a la database
 
-$link = mysqli_connect("localhost", "root", "Palace8313", "database_logo");
+$link = mysqli_connect("localhost", "root", "root", "database_logo");
 
 if (!$link) { #Erreur lors de la tentative de connexion
         echo "Erreur: Impossible de se connecter à MySQL" . PHP_EOL;
