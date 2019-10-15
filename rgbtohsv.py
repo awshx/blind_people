@@ -1,8 +1,8 @@
 import cv2
 import numpy as np
 
-image = cv2.imread('crab.bmp')
-frame = cv2.cvtColor(image, cv.COLOR_BGR2HSV)
+image = cv2.imread('./logo/carrefour.jpg')
+frame = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
 
 h = frame[:,:,0]
 
@@ -45,5 +45,5 @@ if m == 4:
 if m == 5:
 	print("magenta")
 
-cv2.imshow("crab",image)
-cv2.waitkey(0)
+cv2.imshow("show",image)
+cv2.waitKey(0)
