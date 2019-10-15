@@ -17,7 +17,7 @@ for i in h:
 	for j in i:
 		if j == 0:
 			continue
-		if j>329/2 and j<30/2:
+		if j>329/2 or j<30/2:
 			rouge += 1
 		if j>29/2 and j<90/2:
 			jaune += 1
