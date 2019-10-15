@@ -6,7 +6,8 @@ create table if not exists logo ( -- on creee la table logo si elle n'existe pas
 	id smallint unsigned not null auto_increment, -- id est la primary key qui s'incremente automatiquement
 	nom_image varchar(255) not null,
 	lien varchar(255) not null,
-	couleur varchar(40),
+	couleur_dominante varchar(40),
+	couleur_secondaire varchar(40),
 	primary key (id)
 );
 
@@ -15,4 +16,4 @@ into table logo
 fields terminated by '\t'
 lines terminated by '\n'
 ignore 1 lines
-(nom_image, lien, couleur);
+(nom_image, lien, couleur_dominante, couleur_secondaire);

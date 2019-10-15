@@ -1,4 +1,54 @@
-Nom	Lien	Couleur
-La poste	file:///home/isen/Bureau/blind_people/logo/laposte.png	Jaune Bleu
-Carrefour	file:///home/isen/Bureau/blind_people/logo/carrefour.png	Bleu Rouge
-Pharmacie		Vert Bleu
+Nom	Lien	Couleur Dominante	Couleur Secondaire	Fond
+La poste	file:///home/isen/Bureau/blind_people/logo/laposte.png	Bleu	Jaune	
+Carrefour	file:///home/isen/Bureau/blind_people/logo/carrefour.png	Rouge	Bleu	
+Auchan		Rouge	Vert	
+SFR		Rouge	Blanc	
+McDonald		Vert	Jaune	
+Casino		Rouge	Vert	
+Nike		Noir	Blanc	
+Starbucks		Vert	Blanc	
+Renault		Gris	Blanc	
+Sport 2000		Rouge Noir	Blanc	
+Decathlon		Bleu	Blanc	
+Levis		Rouge	Blanc	
+Adidas		Blanc	Noir	
+LCL		Bleu	Jaune	
+Orange		Orange	Blanc	
+Bouygues		Bleu	Orange	
+Free		Blanc	Rouge	
+Burger King		Rouge Jaune	Bleu	
+KFC		Rouge	Noir	
+O'Tacos		Orange	Blanc	
+GO Sport		Gris Blanc	Noir Vert	
+Caisse d'Epargne		Rouge	Blanc	
+BNP Paribas		Vert	Blanc	
+Lacoste		Vert	Blanc Rouge	
+Maif		Vert	Rouge Blanc	
+MMA		Bleu	Vert Orange	
+Cetelem		Vert	Rouge	
+MAAF		Bleu	Blanc Rouge	
+Axa		Bleu	Blanc Rouge	
+Swisslife		Rouge	Noir Blanc	
+Castorama		Bleu	Jaune	
+Leroy Merlin		Vert	Noir	
+Boulanger		Orange	Blanc	
+Darty		Rouge	Blanc Noir	
+Fnac		Orange	Blanc	
+Charlemagne		Rouge	Blanc	
+Ikea		Bleu	Jaune	
+Leclerc		Bleu	Orange Blanc	
+Gifi		Jaune	Rouge	
+Grand Frais		Rouge	Vert Blanc	
+Jardiland		Orange	Blanc	
+Flunch		Rouge	Blanc	
+Buffalo Grill		Rouge	Blanc	
+Courtepaille		Rouge	Blanc	
+Mr.Bricolage		Rouge	Vert	
+Animalis		Rouge	Jaune	
+Intermarché		Noir Rouge		
+Optic 2000		Noir Blanc	Violet Jaune	
+Afflelou		Noir	Gris Blanc	
+Optical Center		Rouge	Noir	
+Grand Optical		Noir	Vert	
+Pharmacie		Vert	Bleu	
+Peugeot		Gris	Blanc	

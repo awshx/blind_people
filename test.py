@@ -14,7 +14,7 @@ opening = cv2.morphologyEx(thresh,cv2.MORPH_OPEN,kernel, iterations = 2)
 # sure background area
 sure_bg = cv2.dilate(opening,kernel,iterations=3)
 # Finding sure foreground area
-dist_transform = cv2.distanceTransform(opening,cv2.cv.CV_DIST_L2,5)
+dist_transform = cv2.distanceTransform(opening,cv2.DIST_L2,5)
 ret, sure_fg = cv2.threshold(dist_transform,0.7*dist_transform.max(),255,0)
 # Finding unknown region
 sure_fg = np.uint8(sure_fg)
@@ -28,6 +28,6 @@ markers = markers+1
 markers[unknown==255] = 0
 
 markers = cv2.watershed(img,markers)
-img[markers == -1] = [255,0,0]
+img[markers == -1] = [0,0,0]
 
-cv2.imwrite('./Images_rue/test.png', img)
+cv2.imwrite('./Images_rue/test.png', opening)
