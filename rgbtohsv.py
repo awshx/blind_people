@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 
-image = cv2.imread('carrefour.jpg')
+image = cv2.imread('./logo/sfr.jpg')
 frame = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
 
 h = frame[:,:,0]
@@ -32,21 +32,44 @@ for index, element in enumerate(h):
 		if element2>269/2 and element2<330/2:
 			magenta += 1
 
-m = np.argmax((rouge, jaune, vert, cyan, bleu, magenta))
+tab = [rouge, jaune, vert, cyan, bleu, magenta]
+tab.sort()
+print(tab)
 
-if m == 0:
-    print("rouge")
-if m == 1:
-    print("jaune")
-if m == 2:
-    print("vert")
-if m == 3:
-    print("cyan")
-if m == 4:
-    print("bleu")
-if m == 5:
-    print("magenta")
+print("Couleur prioritaire:")
+if tab[5] == 0:
+	print("blanc")
+if tab[5] == rouge:
+	print("rouge")
+if tab[5] == jaune:
+	print("jaune")
+if tab[5] == vert:
+	print("vert")
+if tab[5] == cyan:
+	print("cyan")
+if tab[5] == bleu:
+	print("bleu")
+if tab[5] == magenta:
+	print("magenta")
 
-cv2.imshow("crab",image)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+print("\nCouleur secondaire:")
+if tab[4] == 0:
+        print("blanc")
+elif tab[4] == rouge:
+        print("rouge")
+elif tab[4] == jaune:
+        print("jaune")
+elif tab[4] == vert:
+        print("vert")
+elif tab[4] == cyan:
+        print("cyan")
+elif tab[4] == bleu:
+        print("bleu")
+elif tab[4] == magenta:
+        print("magenta")
+
+
+
+# cv2.imshow("show",image)
+# cv2.waitKey(0)
+# cv2.destroyAllWindows()
