@@ -10,19 +10,33 @@ height = int(np.size(img, 0)/2)
 width = int(np.size(img, 1)/3)
 croppedImg = thresh[0:0+height, 0:width*3]
 
-_, contours, _ = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+_, contours, _ = cv2.findContours(croppedImg, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
 
 for cnt in contours:
-	perimetre = cv2.arcLength(cnt,True)
+
+	perimetre = int(cv2.arcLength(cnt,True))
 
 	if perimetre > 500 and perimetre < 1000:
-
-		print(perimetre)
-
-		approx = cv2.approxPolyDP(cnt,0.01*perimetre,True)
-		cv2.drawContours(img,[cnt],-1,(0,255,0),2)
 		
+		if len(cnt) >= 4 and len(cnt) < 50:
+		
+			mask = np.zeros_like(img)
+
+			approx = cv2.approxPolyDP(cnt,0.01*perimetre,True)
+			cv2.drawContours(img,[cnt],-1,(0,255,0),2)
+			
+			print(len(cnt))
+
+		'''
+
+		perimetre  565
+perimetre  526
+perimetre  802
+perimetre  568
+perimetre  662
+
+
 		if len(cnt) == 4:
 			
 			(x, y, w, h) = cv2.boundingRect(approx)
@@ -34,11 +48,12 @@ for cnt in contours:
 			else:
 				shape = "rectangle"
 				print(shape)
+		'''
 
 	#cv2.putText(img, shape, (cX, cY), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
 	
 
 cv2.imshow("image",img)
-cv2.imshow("Threshold", thresh)
+#cv2.imshow("Threshold", thresh)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
