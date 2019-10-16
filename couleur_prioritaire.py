@@ -5,7 +5,7 @@ import numpy as np
 
 def couleur_prio():
 
-	image = cv2.imread('./logo/mcdo.jpg')
+	image = cv2.imread('./logo/orange.jpg')
 	frame = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
 
 	h = frame[:,:,0]
@@ -43,17 +43,17 @@ def couleur_prio():
 	print("Couleur prioritaire:")
 	if tab[5] == 0:
 		cp = "blanc"
-	if tab[5] == rouge:
+	elif tab[5] == rouge:
 		cp = "rouge"
-	if tab[5] == jaune:
+	elif tab[5] == jaune:
 		cp = "jaune"
-	if tab[5] == vert:
+	elif tab[5] == vert:
 		cp = "vert"
-	if tab[5] == cyan:
+	elif tab[5] == cyan:
 		cp = "cyan"
-	if tab[5] == bleu:
+	elif tab[5] == bleu:
 		cp = "bleu"
-	if tab[5] == magenta:
+	elif tab[5] == magenta:
 		cp = "magenta"
 
 	print(cp)

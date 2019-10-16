@@ -5,7 +5,7 @@ import numpy as np
 
 def couleur_second():
 
-	image = cv2.imread('./logo/mcdo.jpg')
+	image = cv2.imread('./logo/orange.jpg')
 	frame = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
 
 	h = frame[:,:,0]
@@ -43,17 +43,17 @@ def couleur_second():
 	print("Couleur secondaire:")
 	if tab[4] == 0:
 		cs = "blanc"
-	if tab[4] == rouge:
+	elif tab[4] == rouge:
 		cs = "rouge"
-	if tab[4] == jaune:
+	elif tab[4] == jaune:
 		cs = "jaune"
-	if tab[4] == vert:
+	elif tab[4] == vert:
 		cs = "vert"
-	if tab[4] == cyan:
+	elif tab[4] == cyan:
 		cs = "cyan"
-	if tab[4] == bleu:
+	elif tab[4] == bleu:
 		cs = "bleu"
-	if tab[4] == magenta:
+	elif tab[4] == magenta:
 		cs = "magenta"
 
 	print(cs)
