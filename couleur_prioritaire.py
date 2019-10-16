@@ -5,7 +5,7 @@ import numpy as np
 
 def couleur_prio():
 
-	image = cv2.imread('./logo/orange.jpg')
+	image = execfile('./choix_logo.py')
 	frame = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
 
 	h = frame[:,:,0]
