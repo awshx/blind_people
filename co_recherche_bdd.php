@@ -14,10 +14,10 @@ if (!$link) { #Erreur lors de la tentative de connexion
 
 #Une connexion reussie et l'utilisateur peut entrer sa recherche dans la console
 echo "Succès : Une connexion correcte à MySQL a été faite!\n" . PHP_EOL;
-echo "Votre recherche:\n";
 echo "Couleur: ";
 $query_couleur = fgets(STDIN);
 $clean_query_couleur = trim($query_couleur);
+echo $clean_query_couleur."\n";
 $min_length = 0;
 
 #Condition pour voir si la chaine de caractere entre par l'utilisateur est plus grand que la taille minimale demande (a savoir un caractere)
@@ -26,10 +26,10 @@ if(strlen($clean_query_couleur) >= $min_length) {
         $clean_query_couleur = mysqli_real_escape_string($link, $clean_query_couleur);
 
 			#Recherche dans la database par rapport a la chaine de l'utilisateur
-                        $raw_results = mysqli_query($link,"SELECT * FROM logo WHERE (`couleur` LIKE '%$clean_query_couleur%')");
+                        $raw_results = mysqli_query($link,"SELECT * FROM logo WHERE (`couleur_dominante` LIKE '%$clean_query_couleur%')");
                         if(mysqli_num_rows($raw_results) > 0) { #On affiche les resultats trouve a l'utilisateur
                                 while($results = mysqli_fetch_array($raw_results)) {
-                                        echo "\nId:".$results['id']." Nom:".$results['nom_image']." Lien:".$results['lien']." Couleur:".$results['couleur']."\n";
+                                        echo "\nId:".$results['id']." Nom:".$results['nom_image']." Lien:".$results['lien']." Couleur dominante:".$results['couleur_dominante']." Couleur secondaire:".$results['couleur_secondaire']."\n";
                                 }
                         }
                         else {
