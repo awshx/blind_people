@@ -17,15 +17,18 @@ def couleur_second():
 	cyan = 0
 	bleu = 0
 	magenta = 0
+	orange = 0
 
 	for index, element in enumerate(h):
 		for index2, element2  in enumerate(element):
 	
 			if s[index][index2] < 100:
 				continue
-			if element2>(329/2) or element2<(30/2):
+			if element2>(329/2) or element2<(19/2):
 				rouge += 1
-			if element2>29/2 and element2<90/2:
+			if element2>20/2 and element2<49/2:
+                                orange += 1
+			if element2>50/2 and element2<90/2:
 				jaune += 1
 			if element2>89/2 and element2<150/2:
 				vert += 1
@@ -36,25 +39,27 @@ def couleur_second():
 			if element2>269/2 and element2<330/2:
 				magenta += 1
 
-	tab = [rouge, jaune, vert, cyan, bleu, magenta]
+	tab = [rouge, jaune, vert, cyan, bleu, magenta, orange]
 	tab.sort()
 	print(tab)
 
 	print("Couleur secondaire:")
-	if tab[4] == 0:
+	if tab[5] == 0:
 		cs = "blanc"
-	elif tab[4] == rouge:
+	elif tab[5] == rouge:
 		cs = "rouge"
-	elif tab[4] == jaune:
+	elif tab[5] == jaune:
 		cs = "jaune"
-	elif tab[4] == vert:
+	elif tab[5] == vert:
 		cs = "vert"
-	elif tab[4] == cyan:
+	elif tab[5] == cyan:
 		cs = "cyan"
-	elif tab[4] == bleu:
+	elif tab[5] == bleu:
 		cs = "bleu"
-	elif tab[4] == magenta:
+	elif tab[5] == magenta:
 		cs = "magenta"
+	elif tab[5] == orange:
+                cs = "orange"
 
 	print(cs)
 	return cs
