@@ -69,28 +69,59 @@ def compareLogo(img, imgLogo):
     return(len(good))
 
 
-def lenghtLetter(word):
+#lengthLetter
+#Desc : Calculate approximatively the length of a word in pixels to show the label of the logo
+#       It can be a word or a sentence
+#Param :
+#  word : a word in string
+#Return
+#  wordLength : the number of pixel corresponding to the length of the label
+def lengthLetter(word):
+  #Length of the word
   wordLength = 0
-  lenghtLetter = 17
+  #Length of a standard letter (low case and not a double letter like m or w)
+  lengthLetter = 17
+  #We cut the word into a list of letters
   letters = list(word)
+  #for every letter of the word
   for letter in letters:
+    #We check if it's a 'm' or a 'w'
     if (letter == 'm' or letter == 'w'):
+      #If so, we increase the length even more than if it was a standard letter 
       wordLength = wordLength + 10
+    #If the letter is in uppercase
     if (letter.isupper()):
-      wordLength = wordLength + 10 
-    wordLength = wordLength + lenghtLetter
+      #we increase the length even more than if it was a standard letter 
+      wordLength = wordLength + 10
+    #We increase the length of the word each at each letter
+    wordLength = wordLength + lengthLetter
+  #We return the final number corresponding to the length of the word
   return wordLength
 
 
+#label
+#Desc : put a label on the picture to the indicated coordonate
+#Params :
+#   img : picture (from a cv.imread(...) )
+#   labelName : name of the label, a string of characters
+#   coord : coordinate where we want to put the labe
+#           the coordinate correspond to the bottom left of the label
+#           the coordinate have to be in a tuple: (x,y)
+#Return: nothing, the label is put directly on the img of param
 def label(img, labelName, coord):
+  #We extract the coordinates
   x,y = coord
+  #Number of letter of the name
   nbLetter = len(labelName)
-  cv.rectangle(img, (x,y+5), (x+lenghtLetter(labelName), y-28), (255,255,255), thickness=-1, lineType=8, shift=0)
+  #We draw the white rectangle at the coordinate of the label
+  cv.rectangle(img, (x,y+5), (x+lengthLetter(labelName), y-28), (255,255,255), thickness=-1, lineType=8, shift=0)
+  #params of the label's text 
   font                   = cv.FONT_HERSHEY_SIMPLEX
   bottomLeftCornerOfText = (x + 3, y-3)
   fontScale              = 1
   fontColor              = (0,255,0)
   lineType               = 2
+  #We put the text on the white rectangle
   cv.putText(img, labelName, 
       bottomLeftCornerOfText, 
       font, 
