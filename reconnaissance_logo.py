@@ -3,40 +3,62 @@ import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 
-def reco_logo():
+def reco_logo(tab_nom_logo, tab_logo):
+	img1 = cv2.imread("./logo/mcdo.jpg", cv2.IMREAD_GRAYSCALE) #queryImage
 
-	img1 = cv2.imread("./Images_rue/72330137_399179944080045_6899828685730217984_n.jpg", cv2.IMREAD_GRAYSCALE) #queryImage
-	img2 = cv2.imread("./logo/lcl.jpg", cv2.IMREAD_GRAYSCALE) #trainImage
+	pts_communs_logo = [0]*10
+	
+	for i in range(3):
+		img2 = cv2.imread(tab_logo[i], cv2.IMREAD_GRAYSCALE) #trainImage
 
-	croppedImgLeft = ptc.cropImageLeft(img1)
+		croppedImgLeft = ptc.cropImageLeft(img1)
 
-	# Initiate SIFT detector
-	sift = cv2.xfeatures2d.SIFT_create()
+		# Initiate SIFT detector
+		sift = cv2.xfeatures2d.SIFT_create()
 
-	# find the keypoints and descriptors with SIFT
-	kp1, des1 = sift.detectAndCompute(img1,None)
-	kp2, des2 = sift.detectAndCompute(img2,None)
+		# find the keypoints and descriptors with SIFT
+		kp1, des1 = sift.detectAndCompute(img1,None)
+		kp2, des2 = sift.detectAndCompute(img2,None)
 
-	# BFMatcher with default params
-	bf = cv2.BFMatcher()
-	matches = bf.knnMatch(des1,des2,k=2)
+		# BFMatcher with default params
+		bf = cv2.BFMatcher()
+		matches = bf.knnMatch(des1,des2,k=2)
 
-	# Apply ratio test
-	good = []
-	for m,n in matches:
-    		if m.distance < 0.75*n.distance:
-        		good.append([m])
+		# Apply ratio test
+		good = []
+		for m,n in matches:
+    			if m.distance < 0.75*n.distance:
+        			good.append([m])
 
-	print("nombre matches:")
-	print(len(good))
-	print("good")
-	print(good)
+		print("Nombre points communs avec le logo " + tab_nom_logo[i] + ": ")
+		print(len(good))
+		print("\n")
 
-	# cv.drawMatchesKnn expects list of lists as matches.
-	img3 = cv2.drawMatchesKnn(img1,kp1,img2,kp2,good,None,flags=cv2.DrawMatchesFlags_NOT_DRAW_SINGLE_POINTS)
+		pts_communs_logo[i] = len(good)
+	
+	logo_reconnu = 0	
+	for i in range(3):
+		if pts_communs_logo[i] > logo_reconnu:
+                       logo_reconnu = pts_communs_logo[i]
+		       nom_logo = tab_nom_logo[i]
+	
+	print("Le logo reconnu est:" + nom_logo)
 
 
-	plt.imshow(img3),plt.show()
+def logo():
+	
+	nom_logo1 = "Orange"
+	logo1 = "./logo/orange.jpg"
+	
+	nom_logo2 = "Mcdo"
+	logo2 = "./logo/mcdo.jpg"
 
+	nom_logo3 = "Boulanger"
+	logo3 = "./logo/boulanger.jpg"
 
-reco_logo()
+	tab_nom_logo = [nom_logo1, nom_logo2, nom_logo3]
+	tab_logo = [logo1, logo2, logo3]
+
+	reco_logo(tab_nom_logo, tab_logo)
+
+logo()
