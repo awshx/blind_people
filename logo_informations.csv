@@ -1,54 +1,54 @@
-Nom	Lien	Couleur Dominante	Couleur Secondaire	Fond
-La poste	/home/isen/Bureau/blind_people/logo/laposte.jpg	Bleu	Jaune	
-Carrefour	/home/isen/Bureau/blind_people/logo/carrefour.jpg	Rouge	Bleu	
-Auchan	/home/isen/Bureau/blind_people/logo/auchan.jpg	Rouge	Vert	
-SFR	/home/isen/Bureau/blind_people/logo/sfr.jpg	Rouge	Blanc	
-McDonald	/home/isen/Bureau/blind_people/logo/mcdo.jpg	Vert	Jaune	
-Casino	/home/isen/Bureau/blind_people/logo/casino.jpg	Rouge	Vert	
-Nike	/home/isen/Bureau/blind_people/logo/nike.jpg	Noir	Blanc	
-Starbucks	/home/isen/Bureau/blind_people/logo/starbucks.jpg	Vert	Blanc	
-Renault	/home/isen/Bureau/blind_people/logo/renault.jpg	Gris	Blanc	
-Sport 2000	/home/isen/Bureau/blind_people/logo/sport2000.jpg	Rouge Noir	Blanc	
-Decathlon	/home/isen/Bureau/blind_people/logo/decathlon.jpg	Bleu	Blanc	
-Levis	/home/isen/Bureau/blind_people/logo/levis.jpg	Rouge	Blanc	
-Adidas	/home/isen/Bureau/blind_people/logo/adidas.jpg	Blanc	Noir	
-LCL	/home/isen/Bureau/blind_people/logo/lcl.jpg	Bleu	Jaune	
-Orange	/home/isen/Bureau/blind_people/logo/orange.jpg	Orange	Blanc	
-Bouygues	/home/isen/Bureau/blind_people/logo/bouygues.jpg	Bleu	Orange	
-Free	/home/isen/Bureau/blind_people/logo/free.jpg	Blanc	Rouge	
-Burger King	/home/isen/Bureau/blind_people/logo/burger_king.jpg	Rouge Jaune	Bleu	
-KFC	/home/isen/Bureau/blind_people/logo/kfc.jpg	Rouge	Noir	
-O'Tacos	/home/isen/Bureau/blind_people/logo/otacos.jpg	Orange	Blanc	
-GO Sport	/home/isen/Bureau/blind_people/logo/gosport.jpg	Gris Blanc	Noir Vert	
-Caisse d'Epargne	/home/isen/Bureau/blind_people/logo/caisseepargne.jpg	Rouge	Blanc	
-BNP Paribas	/home/isen/Bureau/blind_people/logo/bnpparibas.jpg	Vert	Blanc	
-Lacoste	/home/isen/Bureau/blind_people/logo/lacoste.jpg	Vert	Blanc Rouge	
-Maif	/home/isen/Bureau/blind_people/logo/maif.jpg	Vert	Rouge Blanc	
-MMA	/home/isen/Bureau/blind_people/logo/mma.jpg	Bleu	Vert Orange	
-Cetelem	/home/isen/Bureau/blind_people/logo/cetelem.jpg	Vert	Rouge	
-MAAF	/home/isen/Bureau/blind_people/logo/maaf.jpg	Bleu	Blanc Rouge	
-Axa	/home/isen/Bureau/blind_people/logo/axa.jpg	Bleu	Blanc Rouge	
-Swisslife	/home/isen/Bureau/blind_people/logo/swisslife.jpg	Rouge	Noir Blanc	
-Castorama	/home/isen/Bureau/blind_people/logo/castorama.jpg	Bleu	Jaune	
-Leroy Merlin	/home/isen/Bureau/blind_people/logo/leroymerlin.jpg	Vert	Noir	
-Boulanger	/home/isen/Bureau/blind_people/logo/boulanger.jpg	Orange	Blanc	
-Darty	/home/isen/Bureau/blind_people/logo/darty.jpg	Rouge	Blanc Noir	
-Fnac	/home/isen/Bureau/blind_people/logo/fnac.jpg	Orange	Blanc	
-Charlemagne	/home/isen/Bureau/blind_people/logo/charlemagne.jpg	Rouge	Blanc	
-Ikea	/home/isen/Bureau/blind_people/logo/ikea.jpg	Bleu	Jaune	
-Leclerc	/home/isen/Bureau/blind_people/logo/leclerc.jpg	Bleu	Orange Blanc	
-Gifi	/home/isen/Bureau/blind_people/logo/gifi.jpg	Jaune	Rouge	
-Grand Frais	/home/isen/Bureau/blind_people/logo/grandfrais.jpg	Rouge	Vert Blanc	
-Jardiland	/home/isen/Bureau/blind_people/logo/jardiland.jpg	Orange	Blanc	
-Flunch	/home/isen/Bureau/blind_people/logo/flunch.jpg	Rouge	Blanc	
-Buffalo Grill	/home/isen/Bureau/blind_people/logo/buffalogrill.jpg	Rouge	Blanc	
-Courtepaille	/home/isen/Bureau/blind_people/logo/courtepaille.jpg	Rouge	Blanc	
-Mr.Bricolage	/home/isen/Bureau/blind_people/logo/mrbricolage.jpg	Rouge	Vert	
-Animalis	/home/isen/Bureau/blind_people/logo/animalis.jpg	Rouge	Jaune	
-Intermarché	/home/isen/Bureau/blind_people/logo/intermarche.jpg	Noir Rouge		
-Optic 2000	/home/isen/Bureau/blind_people/logo/optic2000.jpg	Noir Blanc	Violet Jaune	
-Afflelou	/home/isen/Bureau/blind_people/logo/afflelou.jpg	Noir	Gris Blanc	
-Optical Center	/home/isen/Bureau/blind_people/logo/opticalcenter.jpg	Rouge	Noir	
-Grand Optical	/home/isen/Bureau/blind_people/logo/grandoptical.jpg	Noir	Vert	
-Pharmacie	/home/isen/Bureau/blind_people/logo/pharmcie.jpg	Vert	Bleu	
-Peugeot	/home/isen/Bureau/blind_people/logo/peugeot.jpg	Gris	Blanc	
+Nom,Lien,Couleur Dominante,Couleur Secondaire,Fond
+La poste,/home/isen/Bureau/blind_people/logo/laposte.jpg,Bleu,Jaune,
+Carrefour,/home/isen/Bureau/blind_people/logo/carrefour.jpg,Rouge,Bleu,
+Auchan,/home/isen/Bureau/blind_people/logo/auchan.jpg,Rouge,Vert,
+SFR,/home/isen/Bureau/blind_people/logo/sfr.jpg,Rouge,Blanc,
+McDonald,/home/isen/Bureau/blind_people/logo/mcdo.jpg,Vert,Jaune,
+Casino,/home/isen/Bureau/blind_people/logo/casino.jpg,Rouge,Vert,
+Nike,/home/isen/Bureau/blind_people/logo/nike.jpg,Noir,Blanc,
+Starbucks,/home/isen/Bureau/blind_people/logo/starbucks.jpg,Vert,Blanc,
+Renault,/home/isen/Bureau/blind_people/logo/renault.jpg,Gris,Blanc,
+Sport 2000,/home/isen/Bureau/blind_people/logo/sport2000.jpg,Rouge Noir,Blanc,
+Decathlon,/home/isen/Bureau/blind_people/logo/decathlon.jpg,Bleu,Blanc,
+Levis,/home/isen/Bureau/blind_people/logo/levis.jpg,Rouge,Blanc,
+Adidas,/home/isen/Bureau/blind_people/logo/adidas.jpg,Blanc,Noir,
+LCL,/home/isen/Bureau/blind_people/logo/lcl.jpg,Bleu,Jaune,
+Orange,/home/isen/Bureau/blind_people/logo/orange.jpg,Orange,Blanc,
+Bouygues,/home/isen/Bureau/blind_people/logo/bouygues.jpg,Bleu,Orange,
+Free,/home/isen/Bureau/blind_people/logo/free.jpg,Blanc,Rouge,
+Burger King,/home/isen/Bureau/blind_people/logo/burger_king.jpg,Rouge Jaune,Bleu,
+KFC,/home/isen/Bureau/blind_people/logo/kfc.jpg,Rouge,Noir,
+O'Tacos,/home/isen/Bureau/blind_people/logo/otacos.jpg,Orange,Blanc,
+GO Sport,/home/isen/Bureau/blind_people/logo/gosport.jpg,Gris Blanc,Noir Vert,
+Caisse d'Epargne,/home/isen/Bureau/blind_people/logo/caisseepargne.jpg,Rouge,Blanc,
+BNP Paribas,/home/isen/Bureau/blind_people/logo/bnpparibas.jpg,Vert,Blanc,
+Lacoste,/home/isen/Bureau/blind_people/logo/lacoste.jpg,Vert,Blanc Rouge,
+Maif,/home/isen/Bureau/blind_people/logo/maif.jpg,Vert,Rouge Blanc,
+MMA,/home/isen/Bureau/blind_people/logo/mma.jpg,Bleu,Vert Orange,
+Cetelem,/home/isen/Bureau/blind_people/logo/cetelem.jpg,Vert,Rouge,
+MAAF,/home/isen/Bureau/blind_people/logo/maaf.jpg,Bleu,Blanc Rouge,
+Axa,/home/isen/Bureau/blind_people/logo/axa.jpg,Bleu,Blanc Rouge,
+Swisslife,/home/isen/Bureau/blind_people/logo/swisslife.jpg,Rouge,Noir Blanc,
+Castorama,/home/isen/Bureau/blind_people/logo/castorama.jpg,Bleu,Jaune,
+Leroy Merlin,/home/isen/Bureau/blind_people/logo/leroymerlin.jpg,Vert,Noir,
+Boulanger,/home/isen/Bureau/blind_people/logo/boulanger.jpg,Orange,Blanc,
+Darty,/home/isen/Bureau/blind_people/logo/darty.jpg,Rouge,Blanc Noir,
+Fnac,/home/isen/Bureau/blind_people/logo/fnac.jpg,Orange,Blanc,
+Charlemagne,/home/isen/Bureau/blind_people/logo/charlemagne.jpg,Rouge,Blanc,
+Ikea,/home/isen/Bureau/blind_people/logo/ikea.jpg,Bleu,Jaune,
+Leclerc,/home/isen/Bureau/blind_people/logo/leclerc.jpg,Bleu,Orange Blanc,
+Gifi,/home/isen/Bureau/blind_people/logo/gifi.jpg,Jaune,Rouge,
+Grand Frais,/home/isen/Bureau/blind_people/logo/grandfrais.jpg,Rouge,Vert Blanc,
+Jardiland,/home/isen/Bureau/blind_people/logo/jardiland.jpg,Orange,Blanc,
+Flunch,/home/isen/Bureau/blind_people/logo/flunch.jpg,Rouge,Blanc,
+Buffalo Grill,/home/isen/Bureau/blind_people/logo/buffalogrill.jpg,Rouge,Blanc,
+Courtepaille,/home/isen/Bureau/blind_people/logo/courtepaille.jpg,Rouge,Blanc,
+Mr.Bricolage,/home/isen/Bureau/blind_people/logo/mrbricolage.jpg,Rouge,Vert,
+Animalis,/home/isen/Bureau/blind_people/logo/animalis.jpg,Rouge,Jaune,
+Intermarché,/home/isen/Bureau/blind_people/logo/intermarche.jpg,Noir Rouge,,
+Optic 2000,/home/isen/Bureau/blind_people/logo/optic2000.jpg,Noir Blanc,Violet Jaune,
+Afflelou,/home/isen/Bureau/blind_people/logo/afflelou.jpg,Noir,Gris Blanc,
+Optical Center,/home/isen/Bureau/blind_people/logo/opticalcenter.jpg,Rouge,Noir,
+Grand Optical,/home/isen/Bureau/blind_people/logo/grandoptical.jpg,Noir,Vert,
+Pharmacie,/home/isen/Bureau/blind_people/logo/pharmcie.jpg,Vert,Bleu,
+Peugeot,/home/isen/Bureau/blind_people/logo/peugeot.jpg,Gris,Blanc,

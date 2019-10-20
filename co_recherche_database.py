@@ -10,8 +10,8 @@ query_image = cv2.imread('./logo/orange.jpg')
 
 nb_noms = 0
 nb_liens = 0
-tab_nom_logo = [0]*10
-tab_logo = [0]*10
+tab_nom_logo = []
+tab_logo = []
 
 baseDeDonnees = mysql.connector.connect(host="localhost",user="root",password="root", database="database_logo")
 
@@ -21,20 +21,25 @@ print("Recherche de la couleur secondaire")
 secondaire = cs.couleur_second(query_image)
 
 curseur = baseDeDonnees.cursor()
-curseur.execute("SELECT nom_image FROM logo WHERE couleur_dominante LIKE '%" + prioritaire + "%' AND couleur_secondaire LIKE '%" + secondaire + "%' ")
 
-for nom in curseur.fetchall():
-	tab_nom_logo[nb_noms] = nom
+query_nom_image = ("SELECT nom_image FROM logo WHERE couleur_dominante LIKE '%" + prioritaire + "%' AND couleur_secondaire LIKE '%" + secondaire + "%' ")
+curseur.execute(query_nom_image)
+
+for nom_image in curseur:
+	tab_nom_logo.append(nom_image)
 	nb_noms += 1
+print(tab_nom_logo)
 
-curseur.execute("SELECT lien FROM logo WHERE couleur_dominante LIKE '%" + prioritaire + "%' AND couleur_secondaire LIKE '%" + secondaire + "%' ")
+query_lien = ("SELECT lien FROM logo WHERE couleur_dominante LIKE '%" + prioritaire + "%' AND couleur_secondaire LIKE '%" + secondaire + "%' ")
+curseur.execute(query_lien)
 
-for lien in curseur.fetchall():
-        tab_logo[nb_liens] = lien
+for lien in curseur:
+        tab_logo.append(lien)
         nb_liens += 1
+print(tab_logo)
 
 baseDeDonnees.close()
 
 logo_final = rl.reco_logo(query_image, tab_nom_logo, tab_logo, nb_noms, nb_liens)
-print(logo_final)
+#print(logo_final)
 
