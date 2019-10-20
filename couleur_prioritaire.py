@@ -3,9 +3,8 @@
 import cv2
 import numpy as np
 
-def couleur_prio():
+def couleur_prio(image):
 
-	image = cv2.imread('./logo/orange.jpg')
 	frame = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
 
 	h = frame[:,:,0]
@@ -63,5 +62,3 @@ def couleur_prio():
 
 	print(cp)
 	return cp
-
-couleur_prio()

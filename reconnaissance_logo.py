@@ -3,8 +3,7 @@ import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 
-def reco_logo(tab_nom_logo, tab_logo):
-	img1 = cv2.imread("./logo/mcdo.jpg", cv2.IMREAD_GRAYSCALE) #queryImage
+def reco_logo(img1, tab_nom_logo, tab_logo, nb_noms, nb_logos):
 
 	pts_communs_logo = [0]*10
 	
@@ -36,29 +35,13 @@ def reco_logo(tab_nom_logo, tab_logo):
 
 		pts_communs_logo[i] = len(good)
 	
-	logo_reconnu = 0	
+	logo_reconnu = 0
+	
 	for i in range(3):
 		if pts_communs_logo[i] > logo_reconnu:
                        logo_reconnu = pts_communs_logo[i]
 		       nom_logo = tab_nom_logo[i]
 	
 	print("Le logo reconnu est:" + nom_logo)
-
-
-def logo():
 	
-	nom_logo1 = "Orange"
-	logo1 = "./logo/orange.jpg"
-	
-	nom_logo2 = "Mcdo"
-	logo2 = "./logo/mcdo.jpg"
-
-	nom_logo3 = "Boulanger"
-	logo3 = "./logo/boulanger.jpg"
-
-	tab_nom_logo = [nom_logo1, nom_logo2, nom_logo3]
-	tab_logo = [logo1, logo2, logo3]
-
-	reco_logo(tab_nom_logo, tab_logo)
-
-logo()
+	return nom_logo

@@ -3,9 +3,8 @@
 import cv2
 import numpy as np
 
-def couleur_second():
-
-	image = cv2.imread('./logo/orange.jpg')  
+def couleur_second(image):
+  
 	frame = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
 
 	h = frame[:,:,0]
@@ -63,5 +62,3 @@ def couleur_second():
 
 	print(cs)
 	return cs
-
-couleur_second()
