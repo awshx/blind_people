@@ -28,7 +28,10 @@ curseur.execute(query_nom_image)
 for nom_image in curseur:
 	tab_nom_logo.append(nom_image)
 	nb_noms += 1
-print(tab_nom_logo)
+
+liste = list(tab_nom_logo)
+liste[0].remove("u") 
+print(liste[0])
 
 query_lien = ("SELECT lien FROM logo WHERE couleur_dominante LIKE '%" + prioritaire + "%' AND couleur_secondaire LIKE '%" + secondaire + "%' ")
 curseur.execute(query_lien)
@@ -36,10 +39,10 @@ curseur.execute(query_lien)
 for lien in curseur:
         tab_logo.append(lien)
         nb_liens += 1
-print(tab_logo)
+#print(tab_logo)
 
 baseDeDonnees.close()
 
-logo_final = rl.reco_logo(query_image, tab_nom_logo, tab_logo, nb_noms, nb_liens)
+#logo_final = rl.reco_logo(query_image, tab_nom_logo, tab_logo, nb_noms, nb_liens)
 #print(logo_final)
 
