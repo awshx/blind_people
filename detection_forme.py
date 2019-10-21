@@ -28,16 +28,15 @@ for cnt in contours:
 
 		approx = cv2.approxPolyDP(cnt,0.01*perimetre,True)
 		
-		if len(cnt) >= 4 and len(cnt) < 500:
+		if len(cnt) >= 4 and len(cnt) < 250:
 
-			cv2.drawContours(croppedImg,[cnt],-1,(0,255,0),2)
+			#cv2.drawContours(croppedImg,[cnt],-1,(0,255,0),2)
 
 			(x, y, w, h) = cv2.boundingRect(cnt)
 			newimg = croppedImg[y:y+w, x:x+h]
 
 			cv2.imshow("newimg",newimg)
-
-cv2.imshow("croppedImg",croppedImg)
-cv2.imshow("edges", edges)
-cv2.waitKey(10000)
+			cv2.imwrite('./Images_detection_formes/test' + str(num) + '.jpg' , newimg)
+			cv2.waitKey(5000)
+			num += 1
 cv2.destroyAllWindows()
