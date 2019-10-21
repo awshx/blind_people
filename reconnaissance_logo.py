@@ -47,6 +47,5 @@ def reco_logo(img1, tab_nom_logo, tab_logo, nb_noms, nb_liens):
                        logo_reconnu = pts_communs_logo[i]
 		       nom_logo = tab_nom_logo[i]
 	
-	print("Le logo reconnu est:" + nom_logo)
 	
 	return nom_logo

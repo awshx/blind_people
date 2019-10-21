@@ -6,7 +6,7 @@ import couleur_prioritaire as cp
 import couleur_secondaire as cs
 import reconnaissance_logo as rl
 
-query_image = cv2.imread('./logo/leroymerlin.jpg')
+query_image = cv2.imread('./logo/lcl.jpg')
 
 nb_noms = 0
 nb_liens = 0
@@ -29,16 +29,16 @@ for nom_image in curseur:
 	tab_nom_logo.append(nom_image)
 	nb_noms += 1
 
-liste = [] 
+liste_nom = [] 
 # initialisation de liste
-for tupl in tab_nom_logo: 
-    for i in tupl: 
-        liste.append(i) 
+for tuple_nom in tab_nom_logo: 
+    for i in tuple_nom: 
+        liste_nom.append(i) 
   
 # afficher la liste
 for i in range(nb_noms):
-	liste[i] = liste[i].encode('utf8')
-print(liste) 
+	liste_nom[i] = liste_nom[i].encode('utf8')
+print(liste_nom) 
 
 query_lien = ("SELECT lien FROM logo WHERE couleur_dominante LIKE '%" + prioritaire + "%' AND couleur_secondaire LIKE '%" + secondaire + "%' ")
 curseur.execute(query_lien)
@@ -46,10 +46,21 @@ curseur.execute(query_lien)
 for lien in curseur:
         tab_logo.append(lien)
         nb_liens += 1
-#print(tab_logo)
+
+liste_lien = []
+# initialisation de liste
+for tuple_lien in tab_logo:
+    for i in tuple_lien:
+        liste_lien.append(i)
+
+# afficher la liste
+for i in range(nb_noms):
+        liste_lien[i] = liste_lien[i].encode('utf8')
+print(liste_lien)
+
 
 baseDeDonnees.close()
 
-#logo_final = rl.reco_logo(query_image, tab_nom_logo, tab_logo, nb_noms, nb_liens)
-#print(logo_final)
+logo_final = rl.reco_logo(query_image, liste_nom, liste_lien, nb_noms, nb_liens)
+print("Le logo reconnu: " + logo_final)
 
