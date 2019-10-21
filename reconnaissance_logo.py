@@ -10,7 +10,7 @@ def reco_logo(img1, tab_nom_logo, tab_logo, nb_noms, nb_liens):
 	#print(nb_noms)
 	#print(nb_liens)	
 
-	pts_communs_logo = [0]*10
+	pts_communs_logo = []
 	
 	for i in range(nb_noms):
 		img2 = cv2.imread(tab_logo[i], cv2.IMREAD_GRAYSCALE) #trainImage
@@ -38,7 +38,7 @@ def reco_logo(img1, tab_nom_logo, tab_logo, nb_noms, nb_liens):
 		print(len(good))
 		print("\n")
 
-		pts_communs_logo[i] = len(good)
+		pts_communs_logo.append(len(good))
 	
 	logo_reconnu = 0
 	

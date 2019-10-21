@@ -6,7 +6,7 @@ import couleur_prioritaire as cp
 import couleur_secondaire as cs
 import reconnaissance_logo as rl
 
-query_image = cv2.imread('./logo/lcl.jpg')
+query_image = cv2.imread('./logo/sfr.jpg')
 
 nb_noms = 0
 nb_liens = 0
