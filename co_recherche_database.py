@@ -6,7 +6,7 @@ import couleur_prioritaire as cp
 import couleur_secondaire as cs
 import reconnaissance_logo as rl
 
-query_image = cv2.imread('./logo/orange.jpg')
+query_image = cv2.imread('./logo/leroymerlin.jpg')
 
 nb_noms = 0
 nb_liens = 0
@@ -29,9 +29,16 @@ for nom_image in curseur:
 	tab_nom_logo.append(nom_image)
 	nb_noms += 1
 
-liste = list(tab_nom_logo)
-liste[0].remove("u") 
-print(liste[0])
+liste = [] 
+# initialisation de liste
+for tupl in tab_nom_logo: 
+    for i in tupl: 
+        liste.append(i) 
+  
+# afficher la liste
+for i in range(nb_noms):
+	liste[i] = liste[i].encode('utf8')
+print(liste) 
 
 query_lien = ("SELECT lien FROM logo WHERE couleur_dominante LIKE '%" + prioritaire + "%' AND couleur_secondaire LIKE '%" + secondaire + "%' ")
 curseur.execute(query_lien)
