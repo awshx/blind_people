@@ -9,7 +9,8 @@ def couleur(image):
 
 	h = frame[:,:,0]
 	s = frame[:,:,1]
-
+    v = frame[:,:,2]
+    
 	rouge = 0
 	jaune = 0
 	vert = 0
@@ -17,10 +18,13 @@ def couleur(image):
 	bleu = 0
 	magenta = 0
 	orange = 0
+    noir = 0
 
 	for index, element in enumerate(h):
 		for index2, element2  in enumerate(element):
-	
+            if s[index][index2] < 20:
+                noir +=1
+                continue
 			if s[index][index2] < 100:
 				continue
 			if element2>(329/2) or element2<(19/2):
@@ -38,45 +42,17 @@ def couleur(image):
 			if element2>269/2 and element2<330/2:
 				magenta += 1
 
-	tab = [rouge, jaune, vert, cyan, bleu, magenta, orange]
-	tab.sort()
+	tab = [rouge, jaune, vert, cyan, bleu, magenta, orange, noir]
+    couleurs = ["rouge", "jaune", "vert", "cyan", "bleu", "magenta", "orange", "noir"]
 	print(tab)
-
-	if tab[6] == 0:
-		cp = "blanc"
-	elif tab[6] == rouge:
-		cp = "rouge"
-	elif tab[6] == jaune:
-		cp = "jaune"
-	elif tab[6] == vert:
-		cp = "vert"
-	elif tab[6] == cyan:
-		cp = "cyan"
-	elif tab[6] == bleu:
-		cp = "bleu"
-	elif tab[6] == magenta:
-		cp = "magenta"
-	elif tab[6] == orange:
-                cp = "orange"
-
-        if tab[5] == 0:
-                cs = "blanc"
-        elif tab[5] == rouge:
-                cs = "rouge"
-        elif tab[5] == jaune:
-                cs = "jaune"
-        elif tab[5] == vert:
-                cs = "vert"
-        elif tab[5] == cyan:
-                cs = "cyan"
-        elif tab[5] == bleu:
-                cs = "bleu"
-        elif tab[5] == magenta:
-                cs = "magenta"
-        elif tab[5] == orange:
-                cs = "orange"
-
-	
+    
+    maxValueIndex = tab.index(max(tab))
+    
+    cp = couleurs[maxValueIndex]
+    tab.pop(maxValueIndex)
+    couleurs.pop(maxValueIndex)
+    cs = couleurs[tab.index(max(tab))]
+    
 	print("Couleur prioritaire: " + cp)
 	print("Couleur secondaire: " + cs)
 	tab_couleur = []
