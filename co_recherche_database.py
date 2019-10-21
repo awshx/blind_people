@@ -2,10 +2,10 @@ import mysql.connector
 import cv2
 import numpy as np
  
-import couleur_test as coul
+import couleur as coul
 import reconnaissance_logo as rl
 
-query_image = cv2.imread('./logo/ikea.jpg')
+query_image = cv2.imread('./logo/leroymerlin.jpg')
 
 nb_noms = 0
 nb_liens = 0
