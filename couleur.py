@@ -3,7 +3,7 @@
 import cv2
 import numpy as np
 
-def couleur_prio(image):
+def couleur(image):
 
 	frame = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
 
@@ -42,7 +42,6 @@ def couleur_prio(image):
 	tab.sort()
 	print(tab)
 
-	print("Couleur prioritaire:")
 	if tab[6] == 0:
 		cp = "blanc"
 	elif tab[6] == rouge:
@@ -60,5 +59,28 @@ def couleur_prio(image):
 	elif tab[6] == orange:
                 cp = "orange"
 
-	print(cp)
-	return cp
+        if tab[5] == 0:
+                cs = "blanc"
+        elif tab[5] == rouge:
+                cs = "rouge"
+        elif tab[5] == jaune:
+                cs = "jaune"
+        elif tab[5] == vert:
+                cs = "vert"
+        elif tab[5] == cyan:
+                cs = "cyan"
+        elif tab[5] == bleu:
+                cs = "bleu"
+        elif tab[5] == magenta:
+                cs = "magenta"
+        elif tab[5] == orange:
+                cs = "orange"
+
+	
+	print("Couleur prioritaire: " + cp)
+	print("Couleur secondaire: " + cs)
+	tab_couleur = []
+	tab_couleur.append(cp)
+	tab_couleur.append(cs)
+	
+	return tab_couleur

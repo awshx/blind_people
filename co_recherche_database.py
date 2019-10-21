@@ -2,11 +2,10 @@ import mysql.connector
 import cv2
 import numpy as np
  
-import couleur_prioritaire as cp
-import couleur_secondaire as cs
+import couleur as coul
 import reconnaissance_logo as rl
 
-query_image = cv2.imread('./logo/sfr.jpg')
+query_image = cv2.imread('./Images_rue/72330137_399179944080045_6899828685730217984_n.jpg')
 
 nb_noms = 0
 nb_liens = 0
@@ -15,10 +14,11 @@ tab_logo = []
 
 baseDeDonnees = mysql.connector.connect(host="localhost",user="root",password="root", database="database_logo")
 
-print("Recherche de la couleur dominante")
-prioritaire = cp.couleur_prio(query_image)
-print("Recherche de la couleur secondaire")
-secondaire = cs.couleur_second(query_image)
+print("Recherche de la couleur dominante et secondaire")
+color = []
+color = coul.couleur(query_image)
+prioritaire = color[0]
+secondaire = color[1]
 
 curseur = baseDeDonnees.cursor()
 
