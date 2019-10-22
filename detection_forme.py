@@ -42,7 +42,7 @@ def detect_shape():
 			
 				if (heightCropped/widthCropped) < 1.2 and (heightCropped/widthCropped) >= 0.8:
 					forme = './Images_detection_formes/forme' + str(num) + '.jpg'
-                        		cv2.imshow("forme", newimg)
+                        		#cv2.imshow("forme", newimg)
 					#cv2.imshow("croppedImg", croppedImg)
 					#cv2.waitKey(5000)
 					cv2.imwrite(forme , newimg)
