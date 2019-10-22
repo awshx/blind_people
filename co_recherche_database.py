@@ -4,8 +4,12 @@ import numpy as np
  
 import couleur as coul
 import reconnaissance_logo as rl
+import detection_forme as df
 
-query_image = cv2.imread('./logo/leroymerlin.jpg')
+tab_query_image = []
+
+tab_query_image = df.detect_shape()
+query_image = cv2.imread(tab_query_image[0])
 
 nb_noms = 0
 nb_liens = 0

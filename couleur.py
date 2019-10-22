@@ -29,9 +29,9 @@ def couleur(image):
 				continue
 			if element2>(329/2) or element2<(19/2):
 				rouge += 1
-			if element2>20/2 and element2<49/2:
+			if element2>20/2 and element2<29/2: #de base 49/2
 				orange += 1
-			if element2>50/2 and element2<90/2:
+			if element2>30/2 and element2<90/2: #de base 50/2
 				jaune += 1
 			if element2>89/2 and element2<150/2:
 				vert += 1

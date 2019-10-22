@@ -4,39 +4,50 @@ import cv2
 from matplotlib import pyplot as plt
 import math
 
-img = cv2.imread('./Images_rue/71810630_2435283783192683_6445654989602816_n.jpg')
+def detect_shape():
 
-if img is None:
-    print('Could not open the image:')
-    exit(0)
+	img = cv2.imread('./Images_rue/71810630_2435283783192683_6445654989602816_n.jpg')
 
-croppedImg = pc.cropImageLeft(img)
+	if img is None:
+		print('Could not open the image:')
+    		exit(0)
 
-gray = cv2.cvtColor(croppedImg,cv2.COLOR_BGR2GRAY)
-edges = cv2.Canny(gray,150,255)
-#lines = cv2.HoughLines(edges,rho=1,theta=np.pi/180,threshold=130)
+	croppedImg = pc.cropImageLeft(img) #Si on veut regarder à gauche de l'image -> pc.cropImageLeft(img) - à droite de l'image -> pc.cropImageRight(img)
 
-_, contours, _ = cv2.findContours(edges, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+	gray = cv2.cvtColor(croppedImg,cv2.COLOR_BGR2GRAY)
+	edges = cv2.Canny(gray,150,255)
+	#lines = cv2.HoughLines(edges,rho=1,theta=np.pi/180,threshold=130)
 
-num = 0
+	_, contours, _ = cv2.findContours(edges, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
-for cnt in contours:
+	num = 0
+	tab_formes = []
 
-	perimetre = int(cv2.arcLength(cnt,True))
+	for cnt in contours:
 
-	if perimetre > 500 and perimetre < 2500:
+		perimetre = int(cv2.arcLength(cnt,True))
 
-		approx = cv2.approxPolyDP(cnt,0.01*perimetre,True)
+		if perimetre > 500 and perimetre < 2500:
+
+			approx = cv2.approxPolyDP(cnt,0.01*perimetre,True)
 		
-		if len(cnt) >= 4 and len(cnt) < 250:
+			if len(cnt) >= 4 and len(cnt) < 250:
 
-			#cv2.drawContours(croppedImg,[cnt],-1,(0,255,0),2)
+				#cv2.drawContours(croppedImg,[cnt],-1,(0,255,0),2)
 
-			(x, y, w, h) = cv2.boundingRect(cnt)
-			newimg = croppedImg[y:y+w, x:x+h]
+				(x, y, w, h) = cv2.boundingRect(cnt)
+				newimg = croppedImg[y:y+w, x:x+h]
+				heightCropped = int(np.size(newimg, 0))
+				widthCropped = int(np.size(newimg, 1))
+			
+				if (heightCropped/widthCropped) < 1.2 and (heightCropped/widthCropped) >= 0.8:
+					forme = './Images_detection_formes/forme' + str(num) + '.jpg'
+                        		cv2.imshow("forme", newimg)
+					#cv2.imshow("croppedImg", croppedImg)
+					#cv2.waitKey(5000)
+					cv2.imwrite(forme , newimg)
+					tab_formes.append(forme)
+                        		num += 1
 
-			cv2.imshow("newimg",newimg)
-			cv2.imwrite('./Images_detection_formes/test' + str(num) + '.jpg' , newimg)
-			cv2.waitKey(5000)
-			num += 1
-cv2.destroyAllWindows()
+	#cv2.destroyAllWindows()
+	return tab_formes
