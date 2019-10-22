@@ -12,7 +12,7 @@ def detect_shape():
 		print('Could not open the image:')
     		exit(0)
 
-	croppedImg = pc.cropImageLeft(img) #Si on veut regarder à gauche de l'image -> pc.cropImageLeft(img) - à droite de l'image -> pc.cropImageRight(img)
+	croppedImg = pc.cropImageLeft(img)
 
 	gray = cv2.cvtColor(croppedImg,cv2.COLOR_BGR2GRAY)
 	edges = cv2.Canny(gray,150,255)
