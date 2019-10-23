@@ -68,3 +68,10 @@ baseDeDonnees.close()
 logo_final = rl.reco_logo(query_image, liste_nom, liste_lien, nb_noms, nb_liens)
 print("Le logo reconnu: " + logo_final)
 
+#Les coordonnees du centre du logo que tu peux utiliser Vincent
+#C'est juste ici les coordonnees pour l'etiquette
+#coordo[0] c'est la largeur et coordo[1] la hauteur
+#Ne modifie rien sur la branche master..!!!!!!
+coordo = []
+coordo = df.coordonnees_centrale_logo()
+print(coordo)
