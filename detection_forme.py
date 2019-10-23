@@ -4,9 +4,14 @@ import cv2
 from matplotlib import pyplot as plt
 import math
 
+def image():
+	
+	image = './Images_rue/72330137_399179944080045_6899828685730217984_n.jpg'
+	return image
+
 def detect_shape():
 
-	img = cv2.imread('./Images_rue/72330137_399179944080045_6899828685730217984_n.jpg')
+	img = cv2.imread(image())
 
 	if img is None:
 		print('Could not open the image:')
@@ -15,7 +20,6 @@ def detect_shape():
 	croppedImg = pc.cropImageRight(img)
 	yInitiale = 0
 	xInitiale = int(np.size(img, 1)/3)*2
-	print("xInitiale: " + str(xInitiale))	
 
 	gray = cv2.cvtColor(croppedImg,cv2.COLOR_BGR2GRAY)
 	edges = cv2.Canny(gray,150,255)
@@ -47,16 +51,15 @@ def detect_shape():
 				if (heightCropped/widthCropped) < 1.2 and (heightCropped/widthCropped) >= 0.8:
 
 					forme = './Images_detection_formes/forme' + str(num) + '.jpg'
-                        		print('x: ' + str(x))
-        	                        print('y: ' + str(y))
-	
-					cv2.circle(img, (xInitiale+x+(widthCropped/2) , yInitiale+y+(heightCropped/2)), 7, (0,0,255), -1)
 						
-					cv2.imshow("forme", newimg)
-					cv2.waitKey(5000)
 					cv2.imwrite(forme , newimg)
 					tab_formes.append(forme)
                         		num += 1
+					
+					cv2.circle(img, (xInitiale+x+(widthCropped/2) , yInitiale+y+(heightCropped/2)), 7, (0,0,255), -1)
+					cv2.imshow("imageInitiale", img)
+                                        cv2.waitKey(5000)
+
 
 	cv2.destroyAllWindows()
 	return tab_formes
