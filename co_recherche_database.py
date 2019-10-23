@@ -5,6 +5,7 @@ import numpy as np
 import couleur as coul
 import reconnaissance_logo as rl
 import detection_forme as df
+import pts_communs as pc
 
 tab_query_image = []
 
@@ -68,10 +69,8 @@ baseDeDonnees.close()
 logo_final = rl.reco_logo(query_image, liste_nom, liste_lien, nb_noms, nb_liens)
 print("Le logo reconnu: " + logo_final)
 
-#Les coordonnees du centre du logo que tu peux utiliser Vincent
-#C'est juste ici les coordonnees pour l'etiquette
-#coordo[0] c'est la largeur et coordo[1] la hauteur
-#Ne modifie rien sur la branche master..!!!!!!
 coordo = []
 coordo = df.coordonnees_centrale_logo()
-print(coordo)
+image_etiquette = cv2.imread('./Images_detection_formes/coordoCentrale.jpg')
+pc.label(image_etiquette, logo_final, coordo)
+cv2.imwrite('./etiquette.jpg', image_etiquette)

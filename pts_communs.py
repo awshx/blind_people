@@ -117,7 +117,7 @@ def label(img, labelName, coord):
   #We draw the white rectangle at the coordinate of the label
   cv2.rectangle(img, (x,y+5), (x+lengthLetter(labelName), y-28), (255,255,255), thickness=-1, lineType=8, shift=0)
   #params of the label's text 
-  font                   = cv.FONT_HERSHEY_SIMPLEX
+  font                   = cv2.FONT_HERSHEY_SIMPLEX
   bottomLeftCornerOfText = (x + 3, y-3)
   fontScale              = 1
   fontColor              = (0,255,0)
