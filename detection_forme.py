@@ -6,13 +6,13 @@ import math
 
 def detect_shape():
 
-	img = cv2.imread('./Images_rue/71810630_2435283783192683_6445654989602816_n.jpg')
+	img = cv2.imread('./Images_rue/72330137_399179944080045_6899828685730217984_n.jpg')
 
 	if img is None:
 		print('Could not open the image:')
     		exit(0)
 
-	croppedImg = pc.cropImageLeft(img)
+	croppedImg = pc.cropImageRight(img)
 
 	gray = cv2.cvtColor(croppedImg,cv2.COLOR_BGR2GRAY)
 	edges = cv2.Canny(gray,150,255)
