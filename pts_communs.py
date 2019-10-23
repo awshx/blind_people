@@ -40,7 +40,7 @@ def cropImageRight(img):
     #we crop the img at the top left
     #(0,0) is the top right of the picture in opencv
     #we cut the param img from (0, 2*widthCropped) (half of the img) to () 
-    croppedImg = img[0:0+heightCropped, widthCropped*2:widthCropped*3]
+    croppedImg = img[0:0+heightCropped, widthCropped*2:widthCropped*3]	
     return(croppedImg)
   
 #CompareLogo
