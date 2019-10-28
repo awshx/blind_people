@@ -115,12 +115,13 @@ def label(img, labelName, coord):
   #Number of letter of the name
   nbLetter = len(labelName)
   #We draw the white rectangle at the coordinate of the label
-  cv2.rectangle(img, (x,y+5), (x+lengthLetter(labelName), y-28), (255,255,255), thickness=-1, lineType=8, shift=0)
+  cv2.line(img, (x,y+5), (x+lengthLetter(labelName), y-28), (0,0,0), thickness=1, lineType=8, shift=0) 
+  cv2.rectangle(img, (x,y+30), (x+lengthLetter(labelName), y-3), (0,0,0), thickness=-1, lineType=8, shift=0)
   #params of the label's text 
   font                   = cv2.FONT_HERSHEY_SIMPLEX
   bottomLeftCornerOfText = (x + 3, y-3)
   fontScale              = 1
-  fontColor              = (0,255,0)
+  fontColor              = (255,255,255)
   lineType               = 2
   #We put the text on the white rectangle
   cv2.putText(img, labelName, 
