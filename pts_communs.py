@@ -77,28 +77,30 @@ def compareLogo(img, imgLogo):
 #  word : a word in string
 #Return
 #  wordLength : the number of pixel corresponding to the length of the label
-def lengthLetter(word):
+def lenghtLetter(word):
   #Length of the word
   wordLength = 0
   #Length of a standard letter (low case and not a double letter like m or w)
-  lengthLetter = 17
+  lenghtLetter = 17
   #We cut the word into a list of letters
   letters = list(word)
   #for every letter of the word
   for letter in letters:
     #We check if it's a 'm' or a 'w'
-    if (letter == 'm' or letter == 'w'):
+    if (letter == 'm' or letter == 'w' or letter == 'M' or letter == 'W'):
       #If so, we increase the length even more than if it was a standard letter 
-      wordLength = wordLength + 10
+      wordLength = wordLength + 5
     #If the letter is in uppercase
     if (letter.isupper()):
       #we increase the length even more than if it was a standard letter 
-      wordLength = wordLength + 10
+      wordLength = wordLength + 3
     #We increase the length of the word each at each letter
-    wordLength = wordLength + lengthLetter
+    wordLength = wordLength + lenghtLetter
   #We return the final number corresponding to the length of the word
   return wordLength
 
+def coef(number, scale):
+	return (scale * number)
 
 #label
 #Desc : put a label on the picture to the indicated coordonate
@@ -110,18 +112,80 @@ def lengthLetter(word):
 #           the coordinate have to be in a tuple: (x,y)
 #Return: nothing, the label is put directly on the img of param
 def label(img, labelName, coord):
+
+  sizeLetter=1
+
   #We extract the coordinates
   x,y = coord
   #Number of letter of the name
   nbLetter = len(labelName)
+
+ #length in pixels of the label
+  lengthLabel = lenghtLetter(labelName)
+  #Coordinates of the letters
+  xRect1 = int(x-coef(lengthLabel/2,sizeLetter))
+  #print("xRect1")
+  #print(xRect1)
+  yRect1 = int(y+coef(20,sizeLetter))
+  #print("yRect1")
+  #print(yRect1)
+  xRect2 = int(x+coef(lengthLabel/2,sizeLetter))
+  #print("xRect2")
+  #print(xRect2)
+  yRect2 = int(y-coef(13,sizeLetter))
+  #print("yRect2")
+  #print(yRect2)
+
+  #image's width
+  heightImg = (np.size(img, 0))
+  #image's height
+  widthImg = (np.size(img, 1))
+  #width of the rectangle
+  widthRect = abs(xRect2 - xRect1)
+  #height of the rectangle
+  heightRect = abs(yRect1 - yRect2)
+
+  #We calculate the margin needed to create the frame
+  marginRect = coef(3,sizeLetter)
+
+  #All the cases 
+  if(xRect1 < 0):
+    #print("oui1")
+    xRect1 = 0
+    xRect2 = xRect1 + widthRect
+  if (xRect2 > widthImg):
+    #print("oui2")
+    xRect2 = widthImg
+    xRect1 = int(xRect2-widthRect)
+  if(yRect2 < 0):
+    #print("oui3")
+    yRect2 = 0
+    yRect1 = int(yRect2 + heightRect)
+  if(yRect1 > heightImg):
+    #print("oui4")
+    yRect1 = heightImg
+    yRect2 = int(yRect1 - heightRect)
+
+  #Coordinate of the labels
+  xLabel = xRect1
+  yLabel = yRect1 - 8
+
+  #We create the location of the (red) frame
+  xFrame1 = xRect1-marginRect
+  yFrame1 = yRect1+marginRect
+  xFrame2 = xRect2+marginRect
+  yFrame2 = yRect2-marginRect
+
   #We draw the white rectangle at the coordinate of the label
-  cv2.line(img, (x,y+5), (x+lengthLetter(labelName), y-28), (0,0,0), thickness=1, lineType=8, shift=0) 
-  cv2.rectangle(img, (x,y+30), (x+lengthLetter(labelName), y-3), (0,0,0), thickness=-1, lineType=8, shift=0)
+  cv2.rectangle(img, (xRect1,yRect1), (xRect2, yRect2), (255,255,255), thickness=-1, lineType=8, shift=0)
+  #We draw the red frame
+  cv2.rectangle(img, (xFrame1,yFrame1), (xFrame2, yFrame2), (0,0,255), thickness=3, lineType=8, shift=0)
+
   #params of the label's text 
   font                   = cv2.FONT_HERSHEY_SIMPLEX
-  bottomLeftCornerOfText = (x + 3, y-3)
-  fontScale              = 1
-  fontColor              = (255,255,255)
+  bottomLeftCornerOfText = (xLabel, yLabel)
+  fontScale              = sizeLetter
+  fontColor              = (255,0,0)
   lineType               = 2
   #We put the text on the white rectangle
   cv2.putText(img, labelName, 
