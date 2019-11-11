@@ -99,7 +99,7 @@ def coordonnees_centrale_logo():
 					coordo_centrale = []
 					coordo_X = xInitiale+x+(widthCropped/2)
 					coordo_Y = yInitiale+y+(heightCropped/2)
-					cv2.circle(img, (coordo_X, coordo_Y), 7, (0,0,255), -1)
+					#cv2.circle(img, (coordo_X, coordo_Y), 7, (0,0,255), -1)
 					cv2.imwrite('./Images_detection_formes/coordoCentrale.jpg', img)
 					coordo_centrale.append(coordo_X)
 					coordo_centrale.append(coordo_Y)

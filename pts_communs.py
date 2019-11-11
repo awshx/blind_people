@@ -113,26 +113,30 @@ def coef(number, scale):
 #Return: nothing, the label is put directly on the img of param
 def label(img, labelName, coord):
 
-  sizeLetter=1
+  sizeLetter=2
 
   #We extract the coordinates
   x,y = coord
+
+  xPosition=x-150
+  yPosition=y-150
+
   #Number of letter of the name
   nbLetter = len(labelName)
 
  #length in pixels of the label
   lengthLabel = lenghtLetter(labelName)
   #Coordinates of the letters
-  xRect1 = int(x-coef(lengthLabel/2,sizeLetter))
+  xRect1 = int(xPosition-coef(lengthLabel/2,sizeLetter))
   #print("xRect1")
   #print(xRect1)
-  yRect1 = int(y+coef(20,sizeLetter))
+  yRect1 = int(yPosition+coef(20,sizeLetter))
   #print("yRect1")
   #print(yRect1)
-  xRect2 = int(x+coef(lengthLabel/2,sizeLetter))
+  xRect2 = int(xPosition+coef(lengthLabel/2,sizeLetter))
   #print("xRect2")
   #print(xRect2)
-  yRect2 = int(y-coef(13,sizeLetter))
+  yRect2 = int(yPosition-coef(13,sizeLetter))
   #print("yRect2")
   #print(yRect2)
 
@@ -177,15 +181,17 @@ def label(img, labelName, coord):
   yFrame2 = yRect2-marginRect
 
   #We draw the white rectangle at the coordinate of the label
-  cv2.rectangle(img, (xRect1,yRect1), (xRect2, yRect2), (255,255,255), thickness=-1, lineType=8, shift=0)
+  cv2.rectangle(img, (xRect1,yRect1), (xRect2, yRect2), (0,0,0), thickness=-1, lineType=8, shift=0)
   #We draw the red frame
-  cv2.rectangle(img, (xFrame1,yFrame1), (xFrame2, yFrame2), (0,0,255), thickness=3, lineType=8, shift=0)
+  cv2.rectangle(img, (xFrame1,yFrame1), (xFrame2, yFrame2), (255,255,255), thickness=3, lineType=8, shift=0)
+
+  cv2.line(img, (x,y), (xRect2, yRect2+30), (0,0,0), thickness=3, lineType=8, shift=0)  
 
   #params of the label's text 
   font                   = cv2.FONT_HERSHEY_SIMPLEX
   bottomLeftCornerOfText = (xLabel, yLabel)
   fontScale              = sizeLetter
-  fontColor              = (255,0,0)
+  fontColor              = (255,255,255)
   lineType               = 2
   #We put the text on the white rectangle
   cv2.putText(img, labelName, 
