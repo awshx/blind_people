@@ -17,11 +17,11 @@ nb_liens = 0
 tab_nom_logo = []
 tab_logo = []
 
-if tab_query_image[0] == '0':
-	print("Pas de formes détectées")
+if tab_query_image[0] == 0:
+	print("Pas de formes")
 	print("Fin de la recherche")
 
-elif tab_query_image[0] != '0':
+elif tab_query_image[0] != 0:
 	baseDeDonnees = mysql.connector.connect(host="localhost",user="root",password="root", database="database_logo")
 
 	print("Recherche de la couleur dominante et secondaire")

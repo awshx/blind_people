@@ -6,7 +6,7 @@ import math
 
 def image():
 	
-	image = './Images_rue/Image7.jpg'
+	image = './Images_rue/Image1.jpg'
 	return image
 
 def detect_shape():
