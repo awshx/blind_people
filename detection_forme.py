@@ -6,14 +6,14 @@ import math
 
 def image():
 	
-	image = './Images_rue/Image1.jpg'
+	image = './Images_rue/Image7.jpg'
 	return image
 
 def detect_shape():
 
 	img = cv2.imread(image())
 	num = 0
-	tab_formes = []
+	tab_formes = [0]*1
 
 	if img is None:
 		print('Could not open the image:')
@@ -50,7 +50,8 @@ def detect_shape():
 
 					forme = './Images_detection_formes/forme' + str(num) + '.jpg'	
 					cv2.imwrite(forme , newimgRight)
-					tab_formes.append(forme)
+					#tab_formes.append(forme)
+					tab_formes[0] = forme
                         		num += 1
 	
 	grayLeft = cv2.cvtColor(croppedImgLeft,cv2.COLOR_BGR2GRAY)
@@ -80,8 +81,9 @@ def detect_shape():
 
                                         forme = './Images_detection_formes/forme' + str(num) + '.jpg'
                                         cv2.imwrite(forme , newimgLeft)
-                                        tab_formes.append(forme)
-                                        num += 1
+                                        #tab_formes.append(forme)
+                                        tab_formes[0] = forme
+					num += 1
 
 	return tab_formes
 
