@@ -71,11 +71,15 @@ elif tab_query_image[0] != 0:
 
 	baseDeDonnees.close()
 
-	logo_final = rl.reco_logo(query_image, liste_nom, liste_lien, nb_noms, nb_liens)
-	print("Le logo reconnu: " + logo_final)
+	if nb_noms == 0 or nb_liens == 0:
+		print("Pas de resultats")
 
-	coordo = []
-	coordo = df.coordonnees_centrale_logo()
-	image_etiquette = cv2.imread('./Images_detection_formes/coordoCentrale.jpg')
-	pc.label(image_etiquette, logo_final, coordo)
-	cv2.imwrite('./etiquette.jpg', image_etiquette)
+	else:
+		logo_final = rl.reco_logo(query_image, liste_nom, liste_lien, nb_noms, nb_liens)
+		print("Le logo reconnu: " + logo_final)
+
+		coordo = []
+		coordo = df.coordonnees_centrale_logo()
+		image_etiquette = cv2.imread('./Images_detection_formes/coordoCentrale.jpg')
+		pc.label(image_etiquette, logo_final, coordo)
+		cv2.imwrite('./etiquette.jpg', image_etiquette)
