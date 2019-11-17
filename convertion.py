@@ -11,7 +11,7 @@ def creationDataframe():
 
 def convertion_csv(convertion):
 	print(convertion)
-	convertion.to_csv("./logo_informations.csv", sep='\t', encoding='utf-8', index=False)
+	convertion.to_csv("./logo_informations.csv", encoding='utf-8', index=False)
 
 def main():
 
