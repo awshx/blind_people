@@ -13,7 +13,7 @@ create table if not exists logo ( -- on creee la table logo si elle n'existe pas
 
 load data local infile '/home/isen/Bureau/blind_people/logo_informations.csv' -- on transfere les donnees du fichier .csv dans la table logo de cette database
 into table logo
-fields terminated by '\t'
+fields terminated by ','
 lines terminated by '\n'
 ignore 1 lines
 (nom_image, lien, couleur_dominante, couleur_secondaire);
