@@ -2,7 +2,7 @@ import numpy as np
 import cv2
 from matplotlib import pyplot as plt
 import math
-
+n
 img = cv2.imread('b.jpg')
 
 if img is None:
@@ -15,7 +15,6 @@ croppedImg = img[0:0+height, width:int(np.size(img, 1))]
 
 gray = cv2.cvtColor(croppedImg,cv2.COLOR_BGR2GRAY)
 edges = cv2.Canny(gray,150,255)
-#lines = cv2.HoughLines(edges,rho=1,theta=np.pi/180,threshold=130)
 
 _, contours, _ = cv2.findContours(edges, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
@@ -42,5 +41,5 @@ for cnt in contours:
 
 cv2.imshow("croppedImg",croppedImg)
 cv2.imshow("edges", edges)
-cv2.waitKey(0)
+cv2.waitKey(10000)
 cv2.destroyAllWindows()
