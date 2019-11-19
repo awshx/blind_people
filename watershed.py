@@ -126,5 +126,6 @@ def watershed_detection():
 	cv2.imwrite('./watershed_result/result_trottoir.jpg', result_trottoir)
 	cv2.imwrite('./watershed_result/result.jpg', result)
 
-	cv2.imshow("resultat_watershed", result)
 	print("Detection et creation des images reussies")
+	cv2.imshow("Watershed", result)
+	cv2.waitKey(5000)

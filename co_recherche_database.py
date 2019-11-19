@@ -1,13 +1,15 @@
 import mysql.connector
 import cv2
 import numpy as np
+from tkinter import *
+import imutils
  
 import couleur as coul
 import reconnaissance_logo as rl
 import detection_forme as df
 import pts_communs as pc
 
-def open_page_result(string name):
+def open_page_result(name):
 	fenetre = Tk()
 	label = Label(fenetre, text="Reconnaissance de logos")
 	label.pack(side=TOP, padx=25, pady=10)
@@ -88,13 +90,17 @@ def recherche_logo():
 
 		else:
 			logo_final = rl.reco_logo(query_image, liste_nom, liste_lien, nb_noms, nb_liens)
-			name = "Le logo reconnu: " + logo_final
-
-			open_page_result(name)
+			print("Le logo reconnu: " + logo_final)
+			name = "Le logo reconnu: "+ logo_final
 
 			coordo = []
 			coordo = df.coordonnees_centrale_logo()
 			image_etiquette = cv2.imread('./Images_detection_formes/coordoCentrale.jpg')
 			pc.label(image_etiquette, logo_final, coordo)
 			cv2.imwrite('./etiquette.jpg', image_etiquette)
+
+			image_etiquette = imutils.resize(image_etiquette, height = 600)
+			cv2.imshow('Etiquette', image_etiquette)
+			cv2.waitKey(2000)
+			open_page_result(name)
 

@@ -45,7 +45,7 @@ def reco_logo(img1, tab_nom_logo, tab_logo, nb_noms, nb_liens):
 	for i in range(nb_liens):
 		if pts_communs_logo[i] > logo_reconnu:
 			logo_reconnu = pts_communs_logo[i]
-		nom_logo = tab_nom_logo[i]
+			nom_logo = tab_nom_logo[i]
 	
 	
 	return nom_logo
