@@ -2,6 +2,8 @@
  
 from tkinter import * 
 from tkinter.filedialog import *
+import co_recherche_database as crb
+import watershed as ws
 
 def checkPicture():
 
@@ -18,6 +20,10 @@ def checkPicture():
 def route_trottoirs():
 	
 	print('Détection routes, trottoirs,...')
+
+	ws.legendes()
+	ws.watershed_detection()	
+
 	fenetre2 = Tk()
 	label = Label(fenetre2, text="Lancement programme: détection route/trottoir")
 	label.pack(side=TOP, padx=25, pady=10)
@@ -26,9 +32,11 @@ def route_trottoirs():
 
 	fenetre2.mainloop()
 
+
 def enseignes():
 	
 	print('Reconnaissance logo sur une image')
+	crb.recherche_logo()
 
 
 def menu_principal():

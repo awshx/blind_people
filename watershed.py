@@ -14,13 +14,13 @@ def legendes():
 	classes = []	
 	couleurs = []
 
-	with open("./classes.txt", "r") as fichier_classes:
+	with open("./watershed_result/classes.txt", "r") as fichier_classes:
 		for line in fichier_classes.readlines():
 			une_ligne = line.split()
 			classes.append(une_ligne)
 	fichier_classes.close()
 
-	with open("./couleurs.txt", "r") as fichier_couleurs:
+	with open("./watershed_result/couleurs.txt", "r") as fichier_couleurs:
                 for line in fichier_couleurs.readlines():
                         une_ligne = line.split()
                         couleurs.append(une_ligne)
@@ -40,11 +40,12 @@ def legendes():
 		cv2.putText(legend, className, (0, (i * 75)+50), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 255), 2)
 		cv2.rectangle(legend, (125, (i * 75)+60), (525, (i * 75)+30), couleur, -1)
 
-	cv2.imwrite("./legendes.jpg", legend)
+	cv2.imwrite("./watershed_result/legendes.jpg", legend)
+	print("Image des legendes reussie")
 
-def watershed():
+def watershed_detection():
 
-	choix_image = "../Images_rue/Image9.jpg"
+	choix_image = "./Images_rue/Image9.jpg"
 	img = cv2.imread(choix_image)
 	mask_route = cv2.imread(choix_image)
 	mask_trottoir = cv2.imread(choix_image)
@@ -108,12 +109,14 @@ def watershed():
 	#cv2.imwrite('./background.jpg', sure_bg)
 	#cv2.imwrite('./foreground.jpg', sure_fg)
 	#cv2.imwrite('./threshold.jpg', thresh)
-	cv2.imwrite('./img.jpg', img)
-	cv2.imwrite('./mask_route.jpg', mask_route)
-	cv2.imwrite('./mask_trottoir.jpg', mask_trottoir)
-	cv2.imwrite('./result_route.jpg', result_route)
-	cv2.imwrite('./result_trottoir.jpg', result_trottoir)
-	cv2.imwrite('./result.jpg', result)
+	cv2.imwrite('./watershed_result/img.jpg', img)
+	cv2.imwrite('./watershed_result/mask_route.jpg', mask_route)
+	cv2.imwrite('./watershed_result/mask_trottoir.jpg', mask_trottoir)
+	cv2.imwrite('./watershed_result/result_route.jpg', result_route)
+	cv2.imwrite('./watershed_result/result_trottoir.jpg', result_trottoir)
+	cv2.imwrite('./watershed_result/result.jpg', result)
+	print("Detection et creation des images reussies")
 
-legendes()
-watershed()
+
+#legendes()
+#watershed_detection()
