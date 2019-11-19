@@ -3,6 +3,16 @@ import cv2
 from matplotlib import pyplot as plt
 import imutils
 import time
+from tkinter import *
+
+def open_page_result():
+	fenetre = Tk()
+	label = Label(fenetre, text="Detection et creation des images reussies")
+	label.pack(side=TOP, padx=25, pady=10)
+
+	Button(fenetre, text ='Picture', command=checkPicture).pack(padx=25, pady=25)
+
+	fenetre.mainloop()
 
 def invert_img(img):
     img = (255-img)
@@ -18,15 +28,15 @@ def legendes():
 		for line in fichier_classes.readlines():
 			une_ligne = line.split()
 			classes.append(une_ligne)
-	fichier_classes.close()
+		fichier_classes.close()
 
 	with open("./watershed_result/couleurs.txt", "r") as fichier_couleurs:
-                for line in fichier_couleurs.readlines():
-                        une_ligne = line.split()
-                        couleurs.append(une_ligne)
+		for line in fichier_couleurs.readlines():
+			une_ligne = line.split()
+			couleurs.append(une_ligne)
 			#print(couleurs[i])
 			#i = i+1
-        fichier_couleurs.close()
+		fichier_couleurs.close()
 
 	#print(couleurs)
 
@@ -51,7 +61,7 @@ def watershed_detection():
 	mask_trottoir = cv2.imread(choix_image)
 	
 	img = imutils.resize(img, height = 300)
-        mask_route = imutils.resize(mask_route, height = 300)
+	mask_route = imutils.resize(mask_route, height = 300)
 	mask_trottoir = imutils.resize(mask_trottoir, height = 300)
 
 	gray_route = cv2.cvtColor(mask_route, cv2.COLOR_BGR2GRAY)
@@ -75,18 +85,18 @@ def watershed_detection():
 	dist_transform_route = cv2.distanceTransform(opening_route, cv2.DIST_L2, 5)
 	ret_route, sure_fg_route = cv2.threshold(dist_transform_route,0.7*dist_transform_route.max(),255,0)
 	dist_transform_trottoir = cv2.distanceTransform(opening_trottoir, cv2.DIST_L2, 5)
-        ret_trottoir, sure_fg_trottoir = cv2.threshold(dist_transform_trottoir,0.7*dist_transform_trottoir.max(),255,0)
+	ret_trottoir, sure_fg_trottoir = cv2.threshold(dist_transform_trottoir,0.7*dist_transform_trottoir.max(),255,0)
 
 # Recherche des regions inconnus
 	sure_fg_route = np.uint8(sure_fg_route)
 	unknown_route = cv2.subtract(sure_bg_route,sure_fg_route)
 	sure_fg_trottoir = np.uint8(sure_fg_trottoir)
-        unknown_trottoir = cv2.subtract(sure_bg_trottoir,sure_fg_trottoir)
+	unknown_trottoir = cv2.subtract(sure_bg_trottoir,sure_fg_trottoir)
 
 	ret_route, markers_route = cv2.connectedComponents(sure_fg_route)
 	markers_route = markers_route+1
 	ret_trottoir, markers_trottoir = cv2.connectedComponents(sure_fg_trottoir)
-        markers_trottoir = markers_trottoir+1
+	markers_trottoir = markers_trottoir+1
 
 # Les regions inconnus ont une marque a 0
 	markers_route[unknown_route == 255] = 0
@@ -98,9 +108,9 @@ def watershed_detection():
 	mask_route[markers_route == 2] = [0,0,255]
 	mask_route[markers_route == 1] = [255,255,255]
 	markers_trottoir = cv2.watershed(mask_trottoir,markers_trottoir)
-        mask_trottoir[markers_trottoir == -1] = [0,255,0]
-        mask_trottoir[markers_trottoir == 2] = [0,255,0]
-        mask_trottoir[markers_trottoir == 1] = [255,255,255]
+	mask_trottoir[markers_trottoir == -1] = [0,255,0]
+	mask_trottoir[markers_trottoir == 2] = [0,255,0]
+	mask_trottoir[markers_trottoir == 1] = [255,255,255]
 
 	result_route = ((0.4 * img) + (0.6 * mask_route)).astype("uint8")	
 	result_trottoir = ((0.4 * img) + (0.6 * mask_trottoir)).astype("uint8")
@@ -115,8 +125,6 @@ def watershed_detection():
 	cv2.imwrite('./watershed_result/result_route.jpg', result_route)
 	cv2.imwrite('./watershed_result/result_trottoir.jpg', result_trottoir)
 	cv2.imwrite('./watershed_result/result.jpg', result)
+
+	cv2.imshow("resultat_watershed", result)
 	print("Detection et creation des images reussies")
-
-
-#legendes()
-#watershed_detection()

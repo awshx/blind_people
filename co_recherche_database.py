@@ -7,6 +7,16 @@ import reconnaissance_logo as rl
 import detection_forme as df
 import pts_communs as pc
 
+def open_page_result(string name):
+	fenetre = Tk()
+	label = Label(fenetre, text="Reconnaissance de logos")
+	label.pack(side=TOP, padx=25, pady=10)
+
+	label = Label(fenetre, text=name)
+	label.pack(side=LEFT, padx=25, pady=10)
+
+	fenetre.mainloop()
+
 def recherche_logo():
 
 	tab_query_image = []
@@ -44,9 +54,9 @@ def recherche_logo():
 		liste_nom = [] 
 		# initialisation de liste
 		for tuple_nom in tab_nom_logo: 
-    			for i in tuple_nom: 
-        			liste_nom.append(i) 
-  
+			for i in tuple_nom: 
+				liste_nom.append(i) 
+
 		# afficher la liste
 		for i in range(nb_noms):
 			liste_nom[i] = liste_nom[i].encode('utf8')
@@ -56,18 +66,18 @@ def recherche_logo():
 		curseur.execute(query_lien)
 
 		for lien in curseur:
-        		tab_logo.append(lien)
-        		nb_liens += 1
+			tab_logo.append(lien)
+			nb_liens += 1
 
 		liste_lien = []
 		# initialisation de liste
 		for tuple_lien in tab_logo:
-    			for i in tuple_lien:
-        			liste_lien.append(i)
+			for i in tuple_lien:
+				liste_lien.append(i)
 
 		# afficher la liste
 		for i in range(nb_noms):
-        		liste_lien[i] = liste_lien[i].encode('utf8')
+			liste_lien[i] = liste_lien[i].encode('utf8')
 		print(liste_lien)
 
 
@@ -78,7 +88,9 @@ def recherche_logo():
 
 		else:
 			logo_final = rl.reco_logo(query_image, liste_nom, liste_lien, nb_noms, nb_liens)
-			print("Le logo reconnu: " + logo_final)
+			name = "Le logo reconnu: " + logo_final
+
+			open_page_result(name)
 
 			coordo = []
 			coordo = df.coordonnees_centrale_logo()

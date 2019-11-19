@@ -4,15 +4,19 @@ from tkinter import *
 from tkinter.filedialog import *
 import co_recherche_database as crb
 import watershed as ws
+from PIL import Image, ImageTk
 
 def checkPicture():
 
-	filename  = askopenfilename(title="Ouvrir votre image", filetypes=[('all files','.*')])
-	fichier = open(filename, "r")
-	content = fichier.read()
+	filename  = askopenfilename(title="Ouvrir votre image", filetypes=[('jpg files','.jpg')])
 
 	fenetre3 = Tk()
-	Label(fenetre3, text=content).pack()
+
+	Canevas = Canvas(fenetre3) 
+	photo = ImageTk.PhotoImage(file=filename)
+	Canevas.config(height=photo.height(),width=photo.width())
+	Canevas.create_image(0,0,anchor=NW,image=photo)
+	Canevas.pack()   
 	
 	
 	fenetre3.mainloop()
@@ -21,14 +25,12 @@ def route_trottoirs():
 	
 	print('Détection routes, trottoirs,...')
 
-	ws.legendes()
-	ws.watershed_detection()	
+	#ws.legendes()
+	#ws.watershed_detection()	
 
 	fenetre2 = Tk()
 	label = Label(fenetre2, text="Lancement programme: détection route/trottoir")
 	label.pack(side=TOP, padx=25, pady=10)
-
-	Button(fenetre2, text ='Picture', command=checkPicture).pack(padx=25, pady=25)
 
 	fenetre2.mainloop()
 
@@ -51,7 +53,6 @@ def menu_principal():
 
 	Button(lf, text ='Détection routes/trottoirs', command=route_trottoirs).pack(side=LEFT, padx=25, pady=25)
 	Button(lf, text ='Reconnaissance logo', command=enseignes).pack(side=RIGHT, padx=25, pady=25)
-
 
 	fenetre.mainloop()
 

@@ -23,8 +23,8 @@ def couleur(image):
 	for index, element in enumerate(h):
 		for index2, element2  in enumerate(element):
 			if v[index][index2] < 20:
-                		noir += 1
-                		continue
+				noir += 1
+				continue
 			if s[index][index2] < 100:
 				continue
 			if element2>(329/2) or element2<(19/2):
@@ -65,22 +65,22 @@ def couleur(image):
 	elif tab[7] == noir:
 		cp = "noir"
 
-        if tab[6] == 0:
-                cs = "blanc"
-        elif tab[6] == rouge:
-                cs = "rouge"
-        elif tab[6] == jaune:
-                cs = "jaune"
-        elif tab[6] == vert:
-                cs = "vert"
-        elif tab[6] == cyan:
-                cs = "cyan"
-        elif tab[6] == bleu:
-                cs = "bleu"
-        elif tab[6] == magenta:
-                cs = "magenta"
-        elif tab[6] == orange:
-                cs = "orange"
+	if tab[6] == 0:
+		cs = "blanc"
+	elif tab[6] == rouge:
+		cs = "rouge"
+	elif tab[6] == jaune:
+		cs = "jaune"
+	elif tab[6] == vert:
+		cs = "vert"
+	elif tab[6] == cyan:
+		cs = "cyan"
+	elif tab[6] == bleu:
+		cs = "bleu"
+	elif tab[6] == magenta:
+		cs = "magenta"
+	elif tab[6] == orange:
+		cs = "orange"
 	elif tab[6] == noir:
 		cs = "noir"
 

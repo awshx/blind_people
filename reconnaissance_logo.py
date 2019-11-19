@@ -31,8 +31,8 @@ def reco_logo(img1, tab_nom_logo, tab_logo, nb_noms, nb_liens):
 		# Apply ratio test
 		good = []
 		for m,n in matches:
-    			if m.distance < 0.75*n.distance:
-        			good.append([m])
+			if m.distance < 0.75*n.distance:
+				good.append([m])
 
 		print("Nombre points communs avec le logo " + tab_nom_logo[i] + ": ")
 		print(len(good))
@@ -44,8 +44,8 @@ def reco_logo(img1, tab_nom_logo, tab_logo, nb_noms, nb_liens):
 	
 	for i in range(nb_liens):
 		if pts_communs_logo[i] > logo_reconnu:
-                       logo_reconnu = pts_communs_logo[i]
-		       nom_logo = tab_nom_logo[i]
+			logo_reconnu = pts_communs_logo[i]
+		nom_logo = tab_nom_logo[i]
 	
 	
 	return nom_logo
